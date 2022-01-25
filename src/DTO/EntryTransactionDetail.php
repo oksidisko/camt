@@ -63,6 +63,11 @@ class EntryTransactionDetail
      */
     private $amount;
 
+    /**
+     * @var bool|null
+     */
+    private $isCreditor;
+
     public function setReference(?Reference $reference): void
     {
         $this->reference = $reference;
@@ -195,5 +200,21 @@ class EntryTransactionDetail
     public function setAmount(?Money $amount): void
     {
         $this->amount = $amount;
+    }
+
+    /**
+     * @return bool|null
+     */
+    public function isCreditor(): ?bool
+    {
+        return $this->isCreditor;
+    }
+
+    /**
+     * @param bool|null $isCreditor
+     */
+    public function setIsCreditor(?bool $isCreditor): void
+    {
+        $this->isCreditor = $isCreditor;
     }
 }

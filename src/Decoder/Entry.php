@@ -26,6 +26,8 @@ class Entry
         if ($xmlDetails !== null) {
             foreach ($xmlDetails as $xmlDetail) {
                 $detail = new DTO\EntryTransactionDetail();
+                $detail->setIsCreditor((string) $xmlEntry->CdtDbtInd === 'CRDT');
+
                 $this->entryTransactionDetailDecoder->addReference($detail, $xmlDetail);
                 $this->entryTransactionDetailDecoder->addRelatedParties($detail, $xmlDetail);
                 $this->entryTransactionDetailDecoder->addRelatedAgents($detail, $xmlDetail);
