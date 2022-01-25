@@ -321,7 +321,10 @@ abstract class EntryTransactionDetail
                         $money = $this->moneyFactory->create($chargesRecord->Amt, $chargesRecord->CdtDbtInd);
                         $chargesDetail->setAmount($money);
                     }
-                    if (isset($chargesRecord->CdtDbtInd) && (string) $chargesRecord->CdtDbtInd === 'true') {
+                    if (isset($chargesRecord->CdtDbtInd)) {
+                        $chargesDetail->setIsCreditor($chargesRecord->CdtDbtInd === 'CRDT');
+                    }
+                    if (isset($chargesRecord->ChrgInclInd) && (string) $chargesRecord->ChrgInclInd === 'true') {
                         $chargesDetail->setChargesIncludedIndicator(true);
                     }
                     if (isset($chargesRecord->Tp->Prtry->Id) && (string) $chargesRecord->Tp->Prtry->Id) {

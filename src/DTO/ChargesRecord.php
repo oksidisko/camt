@@ -16,6 +16,11 @@ class ChargesRecord
     /**
      * @var bool
      */
+    private $isCreditor = null;
+
+    /**
+     * @var bool
+     */
     private $chargesIncludedIndicator = false;
 
     /**
@@ -32,6 +37,23 @@ class ChargesRecord
     {
         $this->amount = $money;
     }
+
+    /**
+     * @return bool
+     */
+    public function isCreditor(): ?bool
+    {
+        return $this->isCreditor;
+    }
+
+    /**
+     * @param bool $isCreditor
+     */
+    public function setIsCreditor(?bool $isCreditor): void
+    {
+        $this->isCreditor = $isCreditor;
+    }
+
 
     public function getChargesIncludedIndicator(): bool
     {
