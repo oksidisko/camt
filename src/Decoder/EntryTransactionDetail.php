@@ -322,7 +322,7 @@ abstract class EntryTransactionDetail
                         $chargesDetail->setAmount($money);
                     }
                     if (isset($chargesRecord->CdtDbtInd)) {
-                        $chargesDetail->setIsCreditor($chargesRecord->CdtDbtInd === 'CRDT');
+                        $chargesDetail->setIsCreditor((string) $chargesRecord->CdtDbtInd === 'CRDT');
                     }
                     if (isset($chargesRecord->ChrgInclInd) && (string) $chargesRecord->ChrgInclInd === 'true') {
                         $chargesDetail->setChargesIncludedIndicator(true);
