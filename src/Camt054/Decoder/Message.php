@@ -23,7 +23,7 @@ class Message extends BaseMessageDecoder
             $notification = new Camt054DTO\Notification(
                 (string) $xmlNotification->Id,
                 $this->dateDecoder->decode((string) $xmlNotification->CreDtTm),
-                $this->getAccount($xmlNotification)->setOwner(new DTO\Owner((string) $xmlNotification->Ownr->Nm))
+                $this->getAccount($xmlNotification)->setOwner(new DTO\Owner((string) $xmlNotification->Acct->Ownr->Nm))
             );
 
             if (isset($xmlNotification->NtfctnPgntn)) {

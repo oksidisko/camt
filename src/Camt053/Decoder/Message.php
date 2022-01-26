@@ -21,7 +21,7 @@ class Message extends BaseMessageDecoder
             $statement = new Camt053DTO\Statement(
                 (string) $xmlStatement->Id,
                 $this->dateDecoder->decode((string) $xmlStatement->CreDtTm),
-                $this->getAccount($xmlStatement)->setOwner(new DTO\Owner((string) $xmlStatement->Ownr->Nm))
+                $this->getAccount($xmlStatement)->setOwner(new DTO\Owner((string) $xmlStatement->Acct->Ownr->Nm))
             );
 
             if (isset($xmlStatement->StmtPgntn)) {
