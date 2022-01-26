@@ -23,7 +23,7 @@ abstract class Message extends BaseMessageDecoder
             $report = new Camt052DTO\Report(
                 (string) $xmlReport->Id,
                 $this->dateDecoder->decode((string) $xmlReport->CreDtTm),
-                $this->getAccount($xmlReport)
+                $this->getAccount($xmlReport)->setOwner(new DTO\Owner((string) $xmlReport->Ownr->Nm))
             );
 
             if (isset($xmlReport->RptPgntn)) {
